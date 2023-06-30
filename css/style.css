@@ -1,0 +1,31 @@
+body {margin:0;}
+
+/*Navigation bar*/
+.topnav {
+  overflow: hidden;
+  background-color: #fff4d8;
+}
+
+/*Blocks and letters of the navigation bar*/
+.topnav a {
+  float: left;
+  display: block;
+  color: #47443e;
+  text-align: center;
+  padding: 15px 18px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/*Hover navigation bar*/
+.topnav a:hover {
+  background-color: #f0c24e;
+  color: black;
+  font-size: 18px;
+  text-decoration-line: underline;
+}
+
+/*icons in the navigation bar*/
+.topnav .icon {
+  display: none;
+}
