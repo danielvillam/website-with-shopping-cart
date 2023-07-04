@@ -7,8 +7,8 @@ function myFunction() {
     }
 }
 
+//Login function
 function login(){
-
     user = document.getElementById('user').value;
     password = document.getElementById('password').value
 
@@ -42,129 +42,16 @@ function login(){
     }
 }
 
+//Logout function
 function signoff(){
-    val=document.getElementById("sesion").textContent;
-    if(val=='Iniciar Sesión'){
-        alert("No ha iniciado sesión aún")
+    val=document.getElementById("loginuser").textContent;
+    if(val=='Login'){
+        alert("Not logged in")
     }else{
-        document.getElementById("sesion").innerHTML='Iniciar Sesión';
-        document.getElementById("sesion").style.color = "black";
-        document.getElementById("cierra").style.color = "black";
-        alert("Sesión cerrada correctamente")
-    }
-}
-
-function limpiars()
-{
-    document.getElementById("nombre").value="";
-    document.getElementById("salario").value = "";
-    document.getElementById("fecha").value = "";
-    document.getElementById("venta").value = "";
-    document.getElementById("comision").value = "";
-    document.getElementById("total").value = "";
-    document.getElementById("nombre").focus();
-}
-
-
-function validarDatos()
-{
-    //Validar datos ingresados
-    val1 = document.getElementById('nombre').value;
-    val2 = document.getElementById('salario').value;
-    val3 = document.getElementById('fecha').value;
-    val4 = document.getElementById('venta').value;
-    val5 = document.getElementById("zonas").value;
-    if (val1 != '' &&  val2 != '' && val3 != '' && val4 != '')
-    {
-        //Convertir el dato a número (float)
-        val2 = parseFloat(val2);
-        val4 = parseFloat(val4);
-        val5 = parseInt(val5);
-    
-        document.getElementById('errornombre').innerHTML = '';
-        document.getElementById('errorsalario').innerHTML = '';
-        document.getElementById('errorfecha').innerHTML = '';
-        document.getElementById('errorventa').innerHTML = '';
-
-        //Verificando que el salario este entre 1000000 y 2000000
-        if(val2>=1000000 && val2<=2000000){
-            cond1=1;
-        }else{
-            cond1=0;
-            document.getElementById('errorsalario').innerHTML = 'El salario básico mensual debe estar entre 1000000 y 2000000';
-        }
-
-        //Verificando que la venta sea mayor o igual a 15000000
-        if(val4>=15000000){
-            cond2=1;
-        }else{
-            cond2=0;
-            document.getElementById('errorventa').innerHTML = 'El valor de la venta debe ser superior o igual a 15000000';  
-        }
-
-        //Si la venta y el salario tienen los intervalos correctos, procedemos a sacar el total 
-        if(cond1==1 && cond2==1){
-
-            //Si la zona es norte aplicamos el 5% de comision sobre la venta
-            if(val5==1){
-                val6=val4*0.05;
-                document.getElementById('comision').value = val6;
-                tot=val2+val6;
-                document.getElementById('total').value = tot;
-            }
-
-            //si la zona es sur aplicamos el 3%
-            else{
-                val6=val4*0.03;
-                document.getElementById('comision   ').value = val6;
-                tot=val2+val6;
-                document.getElementById('total').value = tot;
-            }
-        }
-    }
-    else
-    {
-        //en caso de faltar alguno de los datos obligatorios alertamos
-        if (val1 == '')
-        {
-            document.getElementById('errornombre').innerHTML = 'Debe ingresar el nombre';
-        }
-        else
-        {
-            document.getElementById('errornombre').innerHTML = '';
-        }
-        if (val2 == '')
-        {
-            document.getElementById('errorsalario').innerHTML = 'Debe ingresar el salario';
-        }
-        else
-        {
-            document.getElementById('errorsalario').innerHTML = '';
-        }
-        if (val3 == '')
-        {
-            document.getElementById('errorfecha').innerHTML = 'Debe ingresar la fecha';
-        }
-        else
-        {
-            document.getElementById('errorfecha').innerHTML = '';
-        }
-        if (val4 == '')
-        {
-            document.getElementById('errorventa').innerHTML = 'Debe ingresar el valor de la venta';
-        }
-        else
-        {
-            document.getElementById('errorventa').innerHTML = '';
-        }
-        if (val6 == '')
-        {
-            document.getElementById('errorcomision').innerHTML = 'Debe ingresar el valor de la comisión';
-        }
-        else
-        {
-            document.getElementById('errorcomision').innerHTML = '';
-        }
+        document.getElementById("loginuser").innerHTML='Login';
+        document.getElementById("loginuser").style.color = "black";
+        document.getElementById("signoff").style.color = "black";
+        alert("Logged out successfully")
     }
 }
 
