@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Products</title>
+  <head>
+
+  </head>
+  <body>
+        <div class="topnav" id="topNav">
+            <a><img src="images/logo.png" width="29" height="29"></a>
+            <a href="">Index</a>
+            <a href="">Products</a>
+            <a href="">Our company</a>
+            <a href="">Photo gallery</a>
+            <a href="">Shopping cart</a>
+            <a href="">Login</a>
+            <a >Sign off</a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon">&#9776;</a>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <!--Elements generated from JSON-->
+                <main id="items" class="col-sm-8 row"></main>
+                <!-- Shopping cart -->
+                <aside class="col-sm-4">
+                    <h2>Shopping cart</h2>
+                    <!--Shopping cart items-->
+                    <ul id="cart" class="list-group"></ul>
+                    <hr>
+                    <!--Total price-->
+                    <p class="text-right">Total: <span id="total"></span>$</p>
+                </aside>
+            </div>
+        </div>
+    </body>
+</html>
