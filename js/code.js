@@ -10,7 +10,7 @@ function myFunction() {
 //Login function
 function login(){
     user = document.getElementById('user').value;
-    password = document.getElementById('password').value
+    password = document.getElementById('password').value;
 
     if (user != '' &&  password != ''){
         alert("Login successfullye");
@@ -19,24 +19,20 @@ function login(){
         document.getElementById("signoff").style.color = "red";
         document.getElementById("user").value="";
         document.getElementById("password").value = "";
+        document.getElementById('wrongUser').innerHTML = '';
+        document.getElementById('wrongPassword').innerHTML = '';
     }else{
         document.getElementById('wrongUser').innerHTML = 'Enter user';
         document.getElementById('wrongPassword').innerHTML = 'Enter password';
 
-        if (user == '')
-        {
+        if (user == ''){
             document.getElementById('wrongUser').innerHTML = 'Enter user';
-        }
-        else
-        {
+        }else{
             document.getElementById('wrongUser').innerHTML = '';
         }
-        if (clav == '')
-        {
+        if (password == ''){
             document.getElementById('wrongPassword').innerHTML = 'Enter password';
-        }
-        else
-        {
+        }else{
             document.getElementById('wrongPassword').innerHTML = '';
         }
     }
