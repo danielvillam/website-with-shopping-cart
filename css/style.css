@@ -44,3 +44,15 @@ body {margin:0;}
   color: black;
   background-color: #f0c24e;
 }
+
+.colors{
+  color: black;
+  background-color: #fff4d8;
+  ;
+}
+
+.colors:hover{
+  color: black;
+  background-color: #f0c24e;
+  font-size: 18px;
+}

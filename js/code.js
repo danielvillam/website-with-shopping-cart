@@ -52,197 +52,197 @@ function signoff(){
 }
 
  window.onload = function () {
-            // Variables
-            let baseDeDatos = [
+            //Variables
+            let database = [
                 {
                     id: 1,
-                    nombre: 'Básica Blanca',
-                    precio: 60.000,
-                    imagen: 'imagenes/imagen1.jpg'
+                    name: 'Basic White',
+                    price: 60.000,
+                    image: 'images/image1.jpg'
                 },
                 {
                     id: 2,
-                    nombre: 'Básica Naranjada',
-                    precio: 60.000,
-                    imagen: 'imagenes/imagen2.jpg'
+                    name: 'Basic Orangeade',
+                    price: 60.000,
+                    image: 'images/image2.jpg'
                 },
                 {
                     id: 3,
-                    nombre: 'Básica Amarilla',
-                    precio: 60.000,
-                    imagen: 'imagenes/imagen3.jpg'
+                    name: 'Yellow Basic',
+                    price: 60.000,
+                    image: 'images/image3.jpg'
                 },
                 {
                     id: 4,
-                    nombre: 'Básica Ropa',
-                    precio: 50.000,
-                    imagen: 'imagenes/imagen4.jpg'
+                    name: 'Basic Clothing',
+                    price: 50.000,
+                    image: 'images/image4.jpg'
                 },
                 {
                     id: 5,
-                    nombre: 'Básica Negra',
-                    precio: 60.000,
-                    imagen: 'imagenes/imagen5.jpg'
+                    name: 'Basic Black',
+                    price: 60.000,
+                    image: 'images/image5.jpg'
                 },
                 {
                     id: 6,
-                    nombre: 'Básica Rosa',
-                    precio: 60.000,
-                    imagen: 'imagenes/imagen6.jpg'
+                    name: 'Basic Pink',
+                    price: 60.000,
+                    image: 'images/image6.jpg'
                 },
                 {
                     id: 7,
-                    nombre: 'Camisilla Negra',
-                    precio: 50.000,
-                    imagen: 'imagenes/imagen7.jpg'
+                    name: 'Black Shirt',
+                    price: 50.000,
+                    image: 'images/image7.jpg'
                 },
                 {
                     id: 8,
-                    nombre: 'Básica Gris',
-                    precio: 80.000,
-                    imagen: 'imagenes/imagen8.jpg'
+                    name: 'Basic Grey',
+                    price: 80.000,
+                    image: 'images/image8.jpg'
                 },
                 {
                     id: 9,
-                    nombre: 'Sudadera Blanca',
-                    precio: 90.000,
-                    imagen: 'imagenes/imagen9.jpg'
+                    name: 'White Sweatshirt',
+                    price: 90.000,
+                    image: 'images/image9.jpg'
                 },
                 {
                     id: 10,
-                    nombre: 'Básica negra Alien',
-                    precio: 60.000,
-                    imagen: 'imagenes/imagen10.jpg'
+                    name: 'Basic Black Alien',
+                    price: 60.000,
+                    image: 'images/image10.jpg'
                 },
                 {
                     id: 11,
-                    nombre: 'Jogger Blanco',
-                    precio: 80.000,
-                    imagen: 'imagenes/imagen11.jpg'
+                    name: 'White Joggers',
+                    price: 80.000,
+                    image: 'images/image11.jpg'
                 },
                 {
                     id: 12,
-                    nombre: 'Tapabocas',
-                    precio: 30.000,
-                    imagen: 'imagenes/imagen12.jpg'
+                    name: 'Face mask',
+                    price: 30.000,
+                    image: 'images/image12.jpg'
                 }
 
 
             ]
             let $items = document.querySelector('#items');
-            let carrito = [];
+            let car = [];
             let total = 0;
-            let $carrito = document.querySelector('#carrito');
+            let $car = document.querySelector('#cart');
             let $total = document.querySelector('#total');
-            // Funciones
+            // Funtions
             function renderItems () {
-                for (let info of baseDeDatos) {
-                    // Estructura
-                    let miNodo = document.createElement('div');
-                    miNodo.classList.add('card', 'col-sm-4');
-                    // cuerpo
-                    let miNodoCardBody = document.createElement('div');
-                    miNodoCardBody.classList.add('card-body');
-                    // Titulo
-                    let miNodoTitle = document.createElement('h5');
-                    miNodoTitle.classList.add('card-title');
-                    miNodoTitle.textContent = info['nombre'];
-                    // Imagen
-                    let miNodoImagen = document.createElement('img');
-                    miNodoImagen.classList.add('img-fluid');
-                    miNodoImagen.setAttribute('src', info['imagen']);
-                    // Precio
-                    let miNodoPrecio = document.createElement('p');
-                    miNodoPrecio.classList.add('card-text');
-                    miNodoPrecio.textContent = info['precio'] + '$';
-                    // Boton 
-                    let miNodoBoton = document.createElement('button');
-                    miNodoBoton.classList.add('btn', 'colores');
-                    miNodoBoton.textContent = '+';
-                    miNodoBoton.setAttribute('marcador', info['id']);
-                    miNodoBoton.addEventListener('click', anyadirCarrito);
-                    // Insertamos
-                    miNodoCardBody.appendChild(miNodoImagen);
-                    miNodoCardBody.appendChild(miNodoTitle);
-                    miNodoCardBody.appendChild(miNodoPrecio);
-                    miNodoCardBody.appendChild(miNodoBoton);
-                    miNodo.appendChild(miNodoCardBody);
-                    $items.appendChild(miNodo);
+                for (let info of database) {
+                    //Structure
+                    let myNodo = document.createElement('div');
+                    myNodo.classList.add('card', 'col-sm-4');
+                    //Body
+                    let myNodoCardBody = document.createElement('div');
+                    myNodoCardBody.classList.add('card-body');
+                    //Title
+                    let myNodoTitle = document.createElement('h5');
+                    myNodoTitle.classList.add('card-title');
+                    myNodoTitle.textContent = info['name'];
+                    //Image
+                    let myNodoimage = document.createElement('img');
+                    myNodoimage.classList.add('img-fluid');
+                    myNodoimage.setAttribute('src', info['image']);
+                    //Price
+                    let myNodoprice = document.createElement('p');
+                    myNodoprice.classList.add('card-text');
+                    myNodoprice.textContent = info['price'] + '$';
+                    //Button 
+                    let myNodoButton = document.createElement('button');
+                    myNodoButton.classList.add('btn', 'colors');
+                    myNodoButton.textContent = '+';
+                    myNodoButton.setAttribute('marcador', info['id']);
+                    myNodoButton.addEventListener('click', addcart);
+                    //Inserts
+                    myNodoCardBody.appendChild(myNodoimage);
+                    myNodoCardBody.appendChild(myNodoTitle);
+                    myNodoCardBody.appendChild(myNodoprice);
+                    myNodoCardBody.appendChild(myNodoButton);
+                    myNodo.appendChild(myNodoCardBody);
+                    $items.appendChild(myNodo);
                 }
             }
 
-            function anyadirCarrito () {
-                // Añadimos el Nodo a nuestro carrito
-                carrito.push(this.getAttribute('marcador'))
-                // Calculo el total
-                calcularTotal();
-                // Renderizamos el carrito 
-                renderizarCarrito();
+            function addcart() {
+                //The Node is added to our car
+                car.push(this.getAttribute('marcador'))
+                //Total is calculated
+                calculateTotal();
+                //The car is rendered
+                renderCar();
             }
 
-            function renderizarCarrito () {
-                // Vaciamos todo el html
-                $carrito.textContent = '';
-                // Quitamos los duplicados
-                let carritoSinDuplicados = [...new Set(carrito)];
-                // Generamos los Nodos a partir de carrito
-                carritoSinDuplicados.forEach(function (item, indice) {
-                    // Obtenemos el item que necesitamos de la variable base de datos
-                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
-                        return itemBaseDatos['id'] == item;
+            function renderCar() {
+                //All html is cleaned
+                $car.textContent = '';
+                //Duplicates are removed
+                let carwithoutduplicates = [...new Set(car)];
+                //Nodes are generated from car
+                carwithoutduplicates.forEach(function (item, indice) {
+                    //The item we need is obtained from the database variable
+                    let myItem = database.filter(function(itemDatabase) {
+                        return itemDatabase['id'] == item;
                     });
-                    // Cuenta el número de veces que se repite el producto
-                    let numeroUnidadesItem = carrito.reduce(function (total, itemId) {
+                    //The number of times the product is repeated is counted.
+                    let numberUnitsItem = car.reduce(function (total, itemId) {
                         return itemId === item ? total += 1 : total;
                     }, 0);
-                    // Creamos el nodo del item del carrito
-                    let miNodo = document.createElement('li');
-                    miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-                    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0]['nombre']} - ${miItem[0]['precio']}$`;
-                    // Boton de borrar
-                    let miBoton = document.createElement('button');
-                    miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-                    miBoton.textContent = 'X';
-                    miBoton.style.marginLeft = '1rem';
-                    miBoton.setAttribute('item', item);
-                    miBoton.addEventListener('click', borrarItemCarrito);
-                    // Mezclamos nodos
-                    miNodo.appendChild(miBoton);
-                    $carrito.appendChild(miNodo);
+                    //The car item node is created
+                    let myNodo = document.createElement('li');
+                    myNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                    myNodo.textContent = `${numberUnitsItem} x ${myItem[0]['name']} - ${myItem[0]['price']}$`;
+                    //Delete button
+                    let myButton = document.createElement('button');
+                    myButton.classList.add('btn', 'btn-danger', 'mx-5');
+                    myButton.textContent = 'X';
+                    myButton.style.marginLeft = '1rem';
+                    myButton.setAttribute('item', item);
+                    myButton.addEventListener('click', deleteCartItem);
+                    //Nodes are mixed
+                    myNodo.appendChild(myButton);
+                    $car.appendChild(myNodo);
                 })
             }
 
-            function borrarItemCarrito () {
+            function deleteCartItem () {
                 console.log()
-                // Obtenemos el producto ID que hay en el boton pulsado
+                //The product ID that is in the button pressed is obtained
                 let id = this.getAttribute('item');
-                // Borramos todos los productos
-                carrito = carrito.filter(function (carritoId) {
-                    return carritoId !== id;
+                //All products are deleted
+                car = car.filter(function (carId) {
+                    return carId !== id;
                 });
-                // volvemos a renderizar
-                renderizarCarrito();
-                // Calculamos de nuevo el precio
-                calcularTotal();
+                //It is re-rendered
+                renderCar();
+                //The price is recalculated
+                calculateTotal();
             }
 
-            function calcularTotal () {
-                // Limpiamos precio anterior
+            function calculateTotal () {
+                //Previous price cleared
                 total = 0;
-                // Recorremos el array del carrito
-                for (let item of carrito) {
-                    // De cada elemento obtenemos su precio
-                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
-                        return itemBaseDatos['id'] == item;
+                //The array of the car is traversed
+                for (let item of car) {
+                    //From each element its price is obtained
+                    let myItem = database.filter(function(itemDatabase) {
+                        return itemDatabase['id'] == item;
                     });
-                    total = total + miItem[0]['precio'];
+                    total = total + myItem[0]['price'];
                 }
-                // Formateamos el total para que solo tenga dos decimales
-                let totalDosDecimales = total.toFixed(3);
-                // Renderizamos el precio en el HTML
-                $total.textContent = totalDosDecimales;
+                //The total is formatted so that it only has two decimal places.
+                let tot = total.toFixed(3);
+                //The price is rendered in the HTML
+                $total.textContent = tot;
             }
 
-            // Inicio
+            //Index
             renderItems();
         } 
