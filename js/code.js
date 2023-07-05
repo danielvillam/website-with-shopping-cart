@@ -51,6 +51,111 @@ function signoff(){
     }
 }
 
+function validateData()
+{
+    //Validate data
+    var name = document.getElementById('name').value;
+    var salary = document.getElementById('salary').value;
+    var date = document.getElementById('date').value;
+    var sale = document.getElementById('sale').value;
+    var zone = document.getElementById("zone").value;
+
+    if (name != '' &&  salary != '' && date != '' && sale != '')
+    {
+        //Convert the data to a number (float)
+        salary = parseFloat(salary);
+        sale = parseFloat(sale);
+        zone = parseInt(zone);
+    
+        document.getElementById('wrongName').innerHTML = '';
+        document.getElementById('wrongSalary').innerHTML = '';
+        document.getElementById('wrongDate').innerHTML = '';
+        document.getElementById('wrongSale').innerHTML = '';
+
+        //Verifying that the salary is between 100000 and 200000
+        if(salary>=100000 && salary<=200000){
+            cond1=1;
+        }else{
+            cond1=0;
+            document.getElementById('wrongSalary').innerHTML = 'The basic monthly salary must be between 100000 and 200000';
+        }
+
+        //Verifying that the sale is greater than or equal to 1500000
+        if(sale>=1500000){
+            cond2=1;
+        }else{
+            cond2=0;
+            document.getElementById('wrongSale').innerHTML = 'The value of the sale must be greater than or equal to 1500000';  
+        }
+
+        //If the sale and the salary have the correct intervals, the commission is obtained
+        if(cond1==1 && cond2==1){
+
+            //If the area is north, a 5% commission is applied on the sale
+            if(zone==1){
+                commission=sale*0.05;
+                document.getElementById('commission').value = commission;
+                total=salary+commission;
+                document.getElementById('total').value = total;
+            }
+            //If the area is south, 3% is applied
+            else{
+                commission=sale*0.03;
+                document.getElementById('commission').value = commission;
+                total=salary+commission;
+                document.getElementById('total').value = total;
+            }
+        }
+    }
+    else
+    {
+        //If any of the required data is missing, an alert is given
+        if (name == '')
+        {
+            document.getElementById('wrongName').innerHTML = 'You must enter the name';
+        }
+        else
+        {
+            document.getElementById('wrongName').innerHTML = '';
+        }
+        if (salary == '')
+        {
+            document.getElementById('wrongSalary').innerHTML = 'You must enter salary';
+        }
+        else
+        {
+            document.getElementById('wrongSalary').innerHTML = '';
+        }
+        if (date == '')
+        {
+            document.getElementById('wrongDate').innerHTML = 'You must enter the date';
+        }
+        else
+        {
+            document.getElementById('wrongDate').innerHTML = '';
+        }
+        if (sale == '')
+        {
+            document.getElementById('wrongSale').innerHTML = 'You must enter the value of the sale';
+        }
+        else
+        {
+            document.getElementById('wrongSale').innerHTML = '';
+        }
+    }
+}
+
+function cleanSales()
+{
+    document.getElementById("name").value="";
+    document.getElementById("salary").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("sale").value = "";
+    document.getElementById("commission").value = "";
+    document.getElementById("total").value = "";
+    document.getElementById("name").focus();
+}
+
  window.onload = function () {
             //Variables
             let database = [
@@ -131,9 +236,9 @@ function signoff(){
             ]
             let $items = document.querySelector('#items');
             let car = [];
-            let total = 0;
+            let commission = 0;
             let $car = document.querySelector('#cart');
-            let $total = document.querySelector('#total');
+            let $commission = document.querySelector('#commission');
             // Funtions
             function renderItems () {
                 for (let info of database) {
@@ -174,8 +279,8 @@ function signoff(){
             function addcart() {
                 //The Node is added to our car
                 car.push(this.getAttribute('marcador'))
-                //Total is calculated
-                calculateTotal();
+                //commission is calculated
+                calculatecommission();
                 //The car is rendered
                 renderCar();
             }
@@ -192,8 +297,8 @@ function signoff(){
                         return itemDatabase['id'] == item;
                     });
                     //The number of times the product is repeated is counted.
-                    let numberUnitsItem = car.reduce(function (total, itemId) {
-                        return itemId === item ? total += 1 : total;
+                    let numberUnitsItem = car.reduce(function (commission, itemId) {
+                        return itemId === item ? commission += 1 : commission;
                     }, 0);
                     //The car item node is created
                     let myNodo = document.createElement('li');
@@ -223,24 +328,24 @@ function signoff(){
                 //It is re-rendered
                 renderCar();
                 //The price is recalculated
-                calculateTotal();
+                calculatecommission();
             }
 
-            function calculateTotal () {
+            function calculatecommission () {
                 //Previous price cleared
-                total = 0;
+                commission = 0;
                 //The array of the car is traversed
                 for (let item of car) {
                     //From each element its price is obtained
                     let myItem = database.filter(function(itemDatabase) {
                         return itemDatabase['id'] == item;
                     });
-                    total = total + myItem[0]['price'];
+                    commission = commission + myItem[0]['price'];
                 }
-                //The total is formatted so that it only has two decimal places.
-                let tot = total.toFixed(3);
+                //The commission is formatted so that it only has two decimal places.
+                let tot = commission.toFixed(3);
                 //The price is rendered in the HTML
-                $total.textContent = tot;
+                $commission.textContent = tot;
             }
 
             //Index
