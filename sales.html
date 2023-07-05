@@ -21,8 +21,56 @@
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
 
-    <div style="padding-left:16px">
-      <h2 class="center">Sales system</h2>
+    <div class="container">
+        <h2 class="center">Sales system</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Full Name">
+                <span id="wrongName" style="color:red;font-size:12px">
+  
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="salary">Basic Monthly Salary</label>
+                <input type="number" class="form-control" id="salary" placeholder="Enter Basic Monthly Salary">
+                <span id="wrongSalary" style="color:red;font-size:12px">
+  
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date" placeholder="Enter Date">
+                <span id="wrongDate" style="color:red;font-size:12px">
+  
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="sale">Sale Value</label>
+                <input type="number" class="form-control" id="sale" placeholder="Enter Sale Value">
+                <span id="wrongSale" style="color:red;font-size:12px">
+  
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="zone">Zone</label>
+                <select class="form-control" id="zone">
+                    <option value="1" selected>North</option>
+                    <option value="2">South</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="commission">Commission Value</label>
+                <input type="number" class="form-control" id="commission" disabled>
+            </div>
+  
+            <div class="form-group">
+                <label for="total">Total to pay</label>
+                <input type="number" class="form-control" id="total" disabled>
+            </div>
+            <button type="button" class="buttons" id="validate" onclick="validateData()">Validate</button>
+            <button type="button" class="buttons" id="clean" onclick="cleanSales()">Clean</button>
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
